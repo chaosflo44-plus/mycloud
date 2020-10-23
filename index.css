@@ -1,0 +1,18 @@
+.container {
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+body {
+    /*background: linear-gradient(rgb(83, 73, 223), rgb(73, 165, 223));*/
+    /*background: linear-gradient(blue, lightblue);*/
+    background: #0091ea;
+}
+
+.col-form-label {
+    color: white;
+}

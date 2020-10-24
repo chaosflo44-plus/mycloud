@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 23. Okt 2020 um 20:07
+-- Erstellungszeit: 24. Okt 2020 um 20:01
 -- Server-Version: 10.4.8-MariaDB
 -- PHP-Version: 7.4.5
 
@@ -11,15 +11,11 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Datenbank: `cloud`
 --
+CREATE DATABASE IF NOT EXISTS `cloud` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `cloud`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +23,7 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `files`
 --
 
+DROP TABLE IF EXISTS `files`;
 CREATE TABLE `files` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -34,21 +31,17 @@ CREATE TABLE `files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `files`
+-- TRUNCATE Tabelle vor dem Einfügen `files`
 --
 
-INSERT INTO `files` (`id`, `name`, `file`) VALUES
-(1, 'DATEIIIIIIIIIIIII', 'file.txt'),
-(2, 'adw', '7770-Herunterladen (1).jpg'),
-(3, 'adw', '3025-Herunterladen (1).jpg'),
-(4, 'Herunterladen (1).jpg', 'Herunterladen (1).jpg');
-
+TRUNCATE TABLE `files`;
 -- --------------------------------------------------------
 
 --
 -- Tabellenstruktur für Tabelle `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -56,11 +49,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `users`
+-- TRUNCATE Tabelle vor dem Einfügen `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'cfp', '$2y$10$3gg3RyYdacM7RbJ6P2bMAeCQDiC/cJC7VHy81O8dMwP1I2qmTTvKa');
+TRUNCATE TABLE `users`;
 
 --
 -- Indizes der exportierten Tabellen
@@ -86,7 +78,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `files`
 --
 ALTER TABLE `files`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
@@ -94,7 +86,3 @@ ALTER TABLE `files`
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

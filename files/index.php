@@ -27,7 +27,7 @@
                 $result = $db->query($sql);
                 if($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                        echo "<tr><th scope='row'>".$row['name']."</th><td><a>Löschen</a></td><td><a href='file/".$row['file']."' download>Runterladen</a></td></tr>";
+                        echo "<tr><th scope='row'>".$row['name']."</th><td><a href='delete.php?file=".$row['name']."'>Löschen</a></td><td><a href='file/".$row['file']."' download>Runterladen</a></td></tr>";
                     }
                 } else {
                     echo "<tr><th scope='row' colspan='3'>Noch nix ):</th></tr>";

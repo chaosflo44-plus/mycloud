@@ -1,11 +1,10 @@
 <?php
-var_dump($_POST);
+require("../../db.php");
 if(isset($_POST["submit"])) {
-    echo "A";
     $tname = $_FILES['file']['tmp_name'];
-    $uploads_dir = '../files/';
+    $uploads_dir = '../file/';
     if(move_uploaded_file($tname, $uploads_dir.$_FILES['file']['name'])) {
-        $sql = "INSERT INTO files (name, file) VALUES (".$_FILES['files']['name'].", files/".$_FILES['file']['name'].")";
+        $sql = "INSERT INTO files (name, file) VALUES ('".$_FILES['file']['name']."', 'file/".$_FILES['file']['name']."')";
         if($db->query($sql)) {
             $success = "File uploaded!";
         } else {
@@ -52,10 +51,10 @@ if(isset($_POST["submit"])) {
         }
         ?>
         <form method="post" enctype="multipart/form-data">
-            <input type="file" id="real-file" hidden="hidden" name="file">
+            <input type="file" id="real-file" hidden="hidden" name="file" multiple>
             <button type="button" class="btn btn-primary" id="browse-btn">Browse</button>
             <span id="file-txt">No File Choosen</span><br><br>
-            <button type="submit" class="btn btn-success">Upload</button>
+            <button type="submit" name="submit" class="btn btn-success">Upload</button>
         </form>
     </div>
 
